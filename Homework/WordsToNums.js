@@ -1,4 +1,4 @@
-const unmoderatedString = 'A one boy ate three apples. nine trees seven eggs three ten! ate eight'
+const unmoderatedString = 'A one boy ate two-three apples. nine trees seven eggs three ten! ate eight?-!'
 
 const numberedWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
 
@@ -28,9 +28,7 @@ function parseWordsFromString(input) {
         currentWord += symbol
     }
 
-    if (currentWord != '') {
-        result.push(currentWord)
-    }
+         result.push(currentWord)
 
     return result
 }

@@ -8,39 +8,35 @@ const testList5 = []
 function sortArray(inputList) {
 
     const result = []
+    let preparedList = [...inputList]
     let intermediateList = []
     let minValue
 
-    // не знаю чи треба вводити цю перевірку - без неї теж працює без помилки ))
-    // if (inputList.length === 0) {
-    //     return undefined // чи NaN правильніше?        
-    // }
-
-    // перевірка чи всі елементи в заданому масиві числа    
-    for (const item of inputList) {
+    // перевірка чи всі елементи в заданому масиві числа
+    for (const item of preparedList) {
         if (isNaN(item)) {
             return NaN
         }
     }
 
-    if (inputList.length === 1) {
-        return inputList
+    if (preparedList.length <= 1) {
+        return preparedList
     }
 
     // Початок сортування
-    for (const item of inputList) {
-        minValue = inputList[0]
+    for (const item of preparedList) {
+
+        minValue = preparedList[0]
         // знаходим мінімальне значення у заданому масиві
-        for (const item of inputList) {
-            if (!(item <= minValue)) {
+        for (const item of preparedList) {
+            if (item >= minValue) {
                 continue
             }
-            else {
-                minValue = item
-            }
+            minValue = item
         }
-        // формуєм масиви 'result' додаванням знайденого вище мінімального елементу і проміжний - з елементів, що залишились
-        for (const item of inputList) {
+
+        // формуєм масиви 'result'(відсортований) додаванням знайденого вище мінімального елементу і проміжний - з елементів, що залишились
+        for (const item of preparedList) {
             if (item === minValue) {
                 result.push(item)
             }
@@ -48,15 +44,13 @@ function sortArray(inputList) {
                 intermediateList.push(item)
             }
         }
-        // перевірка чи заповнився проміжний масив і достроковий вихід з основного циклу  якщо масив пустий
+
+        // перевірка чи заповнився проміжний масив і достроковий вихід з основного циклу якщо цей масив пустий
         if ((intermediateList.length) === 0) {
             break
         }
-        else {
-            inputList = intermediateList
+            preparedList = intermediateList
             intermediateList = []
-        }
-
     }
 
     return result

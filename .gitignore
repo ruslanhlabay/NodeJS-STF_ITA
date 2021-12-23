@@ -2,3 +2,5 @@ HomeworkTrain/
 .idea/
 Homework/allUnsorted/
 lecture-*/
+newApp/package-lock.json
+newApp/node_modules/

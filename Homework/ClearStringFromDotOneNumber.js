@@ -37,6 +37,7 @@ function parseWordsFromString(input) {
     }
 
     return result
+    
 }
 
 
@@ -59,12 +60,10 @@ function moderateString(input) {
         }
         moderatedWords.push(word)
     }
-    
 
     result = moderatedWords[0]
     for (let i = 1; i < moderatedWords.length; i++) {
         word = moderatedWords[i]
-
         if (word.length===1) {
             if (word === ','
             || word === '!'
@@ -76,7 +75,6 @@ function moderateString(input) {
             }
         }
             result = result + ' ' + word
-        
     }
 
     return result

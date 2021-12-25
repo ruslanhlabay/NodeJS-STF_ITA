@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
+const { movieCheckerController } = require('../newApp/controllers/movieCheckers')
 const upload = multer()
 const app = express()
 const PORT = 3000
@@ -30,6 +31,8 @@ app.post ('/add-user', (req, res) => {
 
 })
 
+
+app.get('/check-user-age/:movieId/:clientAge', movieCheckerController())
 
 app.listen(PORT, () => {
 

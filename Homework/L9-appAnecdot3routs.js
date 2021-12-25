@@ -1,5 +1,5 @@
 const express = require('express')
-const appAnecdot3routs = express()
+const app = express()
 const PORT = 3000
 
 const toMainPage = `
@@ -8,7 +8,7 @@ const toMainPage = `
     `
 
 
-appAnecdot3routs.get ('/', (req, res)=> {
+app.get ('/', (req, res)=> {
 
     res.send(`
     <h1>ANECDOTE</h1>
@@ -19,7 +19,7 @@ appAnecdot3routs.get ('/', (req, res)=> {
 })
 
 
-appAnecdot3routs.get ('/about-crony', (req, res)=> {
+app.get ('/about-crony', (req, res)=> {
 
     res.send(('<pre>– Куме, а ви можете випити відро води?\n'+
         ' – Я що – корова?\n' +
@@ -29,7 +29,7 @@ appAnecdot3routs.get ('/about-crony', (req, res)=> {
 })
 
 
-appAnecdot3routs.get ('/about-IT', (req, res)=> {
+app.get ('/about-IT', (req, res)=> {
 
     res.send(('<pre>Жінка до чоловіка-програміста:\n' +
         ' — Вирішуй: або я, або пиво!\n' +
@@ -38,7 +38,7 @@ appAnecdot3routs.get ('/about-IT', (req, res)=> {
 })
 
 
-appAnecdot3routs.get ('/about-holms', (req, res)=> {
+app.get ('/about-holms', (req, res)=> {
 
     res.send(('<pre> Шерлок Холмс і Ватсон гуляють долиною. Раптом чути дикі крики.\n' +
         '— Холмсе, це виє собака Баскервилів?\n' +
@@ -48,7 +48,7 @@ appAnecdot3routs.get ('/about-holms', (req, res)=> {
 
 
 
-appAnecdot3routs.listen(PORT, () => {
+app.listen(PORT, () => {
 
     console.log(`Example app listen on http://localhost:${PORT}`)
 })
